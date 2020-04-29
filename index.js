@@ -10,7 +10,7 @@ console.info('starting fetch for', languages)
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      languages: ['en-US'].concat(languages),
+      languages: languages,
       videoId: videoId
     })
   }).then(response => {
