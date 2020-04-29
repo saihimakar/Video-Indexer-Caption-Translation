@@ -4,13 +4,13 @@ let params = new URLSearchParams(top.location.search.substring(1));
   console.log( 'videoId=' + videoId )
 
 console.info('starting fetch for', languages)
-  return fetch("https://prod-00.westus2.logic.azure.com:443/workflows/366b73ac2f354e2799b87db3c0241adc/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FdEthGEqPF7UUYf4pB69Q--ZxnZRKngXhFZnVjPxyc4", { // this is my azure  provided endpoint instead
+  return fetch("https://prod-00.westus2.logic.azure.com:443/workflows/366b73ac2f354e2799b87db3c0241adc/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FdEthGEqPF7UUYf4pB69Q--ZxnZRKngXhFZnVjPxyc4", { // this is my azure  provided endpoint 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      languages: languages,
+      languages: ['en-US'].concat(languages),
       videoId: videoId
     })
   }).then(response => {
